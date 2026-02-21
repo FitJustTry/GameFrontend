@@ -1,0 +1,139 @@
+/* PopularGames.css - ปรับให้เหมือน home.css (ม่วง-ดำ-ทอง, glassmorphism, ไม่มี header แยก) */
+.popular-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e0538, #3a1a6b);
+  color: #e0d4ff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Section Title (gradient text + ขนาดใหญ่, ลด margin บนเพราะไม่มี header แยก) */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 40px 0 60px; /* ลดจาก 100px เหลือ 40px เพื่อให้เนื้อหาขึ้นมาด้านบนมากขึ้น */
+  background: linear-gradient(90deg, #fff, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+/* Games Grid */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+/* CARD (glassmorphism + hover) */
+.game-card {
+  background: rgba(60, 30, 110, 0.8);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+.game-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+  border-color: #a855f7;
+}
+
+/* IMAGE */
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.game-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.game-card:hover .game-img {
+  transform: scale(1.1);
+}
+
+/* ACTIVE BADGE */
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(90deg, #10b981, #059669);
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+/* INFO */
+.game-info {
+  padding: 20px;
+  text-align: center;
+}
+.game-info h3 {
+  font-size: 1.35rem;
+  color: #ffeb3b;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.game-sub {
+  font-size: 0.95rem;
+  color: #e8e8e8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* BUTTON AREA */
+.game-meta {
+  padding: 18px;
+  text-align: center;
+  border-top: 1px solid rgba(168,85,247,0.06);
+}
+.play-btn {
+  background: linear-gradient(90deg, #b97cff, #7e45ff);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 8px 20px rgba(168,85,247,0.4);
+}
+.play-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(168,85,247,0.6);
+  background: linear-gradient(90deg, #c084fc, #a855f7);
+}
+
+/* Loading & Error & No Data */
+.loading, .error-message, .no-data {
+  text-align: center;
+  padding: 200px 20px;
+  font-size: 1.6rem;
+  color: #d0c0ff;
+}
+.error-message {
+  color: #ff6b6b;
+}
+.no-data {
+  font-size: 1.4rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title { 
+    font-size: 2rem; 
+    margin: 30px 0 40px; /* ลด margin บนให้เหมาะมือถือ */
+  }
+  .games-grid { grid-template-columns: 1fr; gap: 25px; }
+  .game-img { height: 180px; }
+  .play-btn { padding: 10px 24px; font-size: 1rem; }
+}
